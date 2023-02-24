@@ -5,12 +5,12 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-Book.prototype.isRead = function() {
-    if(this.read == false) return "not read yet"
-    else return "read already"
+Book.prototype.isRead = function isRead() {
+    if(this.read === false) return "not read yet"
+    return "read already"
 }
 
-Book.prototype.info = function() {
+Book.prototype.info = function info() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead()}`
 }
 
