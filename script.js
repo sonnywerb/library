@@ -1,20 +1,39 @@
-function Book(title, author, pages, read) {
+let myLibrary = [];
+
+function Book(title, author, read = 'No') {
     this.title = title;
     this.author = author;
-    this.pages = pages;
     this.read = read;
 }
 
-Book.prototype.isRead = function isRead() {
-    if (this.read === false) return 'not read yet';
-    return 'read already';
-};
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+}
 
-Book.prototype.info = function info() {
-    return `${this.title} by ${this.author}, ${
-        this.pages
-    } pages, ${this.isRead()}`;
-};
+function displayBooks() {
+    myLibrary.forEach((book) => {
+        console.log(book);
+    });
+}
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
-console.log(theHobbit.info());
+const percyJackson = new Book('Percy Jackson', 'Rick Rioridan');
+const harryPotter = new Book('Harry Potter', 'J.K. Rowling');
+const catInTheHat = new Book('The Cat In The Hat', 'Dr. Seuss', 'Yes');
+
+addBookToLibrary(percyJackson);
+addBookToLibrary(harryPotter);
+addBookToLibrary(catInTheHat);
+displayBooks();
+
+// button to open modal
+const openModal = document.querySelector('#open-modal');
+const modal = document.querySelector('#modal');
+const close = document.querySelector('.close');
+
+openModal.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
+
+close.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
