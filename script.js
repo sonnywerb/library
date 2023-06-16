@@ -56,6 +56,17 @@ function displayBooks() {
     });
 }
 
+function emptyLibrary() {
+    if (myLibrary === undefined || myLibrary.length === 0) {
+        let msg = document.createElement('div');
+        msg.textContent =
+            'Your library is empty! Click the button to add a book!';
+        const header = document.querySelector('#header');
+        header.insertAdjacentElement('afterend', msg);
+    }
+}
+emptyLibrary();
+
 function createDeleteBtn() {
     let newDeleteBtn = document.createElement('input');
     newDeleteBtn.type = 'button';
