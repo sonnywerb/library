@@ -15,10 +15,9 @@
         <button id="open-modal">Add Book</button>
         <!-- Modal -->
         <div id="modal" class="modal">
-            <!-- Close Modal -->
-            <div class="close">&times;</div>
             <!-- Modal Content -->
             <div class="modal-content">
+                <span class="close">&times;</span>
                 <form>
                     <fieldset>
                         <legend>Add Book</legend>
@@ -33,13 +32,17 @@
                                 />
                             </li>
                             <li>
-                                <label for="author">Author</label>
+                                <label for="author">Author </label>
                                 <input
                                     type="text"
                                     id="author"
                                     name="author"
                                     required
                                 />
+                            </li>
+                            <li>
+                                <label for="read">Read?</label>
+                                <input type="checkbox" id="read" name="read" />
                             </li>
                         </ul>
                         <button type="submit" id="submit">Submit</button>
@@ -49,12 +52,16 @@
         </div>
 
         <!-- Table to store added books -->
-        <table>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Read</th>
-            </tr>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Read</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
     </body>
 </html>
