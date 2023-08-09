@@ -1,35 +1,20 @@
-class Library {
-    myLibrary = [];
+let myLibrary = [];
 
-    constructor(title, author, read = 'No') {
-        this.title = title;
-        this.author = author;
-        this.read = read;
-    }
-
-    addBookToLibrary(book) {
-        myLibrary.push(book);
-    }
+function Book(title, author, read = 'No') {
+    this.title = title;
+    this.author = author;
+    this.read = read;
 }
 
-// let myLibrary = [];
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+}
 
-// function Book(title, author, read = 'No') {
-//     this.title = title;
-//     this.author = author;
-//     this.read = read;
-// }
-
-// function addBookToLibrary(book) {
-//     myLibrary.push(book);
-// }
-
-// function displayBooks() {
-//     myLibrary.forEach((book) => {
-//         console.log(book);
-//     });
-// }
-
+function displayBooks() {
+    myLibrary.forEach((book) => {
+        console.log(book);
+    });
+}
 const percyJackson = new Book('Percy Jackson', 'Rick Rioridan');
 const harryPotter = new Book('Harry Potter', 'J.K. Rowling');
 const catInTheHat = new Book('The Cat In The Hat', 'Dr. Seuss', 'Yes');
