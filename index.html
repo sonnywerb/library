@@ -1,67 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My Library</title>
 
-        <link rel="stylesheet" href="styles.css" />
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <h1 id="header">Library</h1>
-        <!-- Button to open 'Add Book' modal -->
-        <button id="open-modal">Add Book</button>
-        <!-- Modal -->
-        <div id="modal" class="modal">
-            <!-- Modal Content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form>
-                    <fieldset>
-                        <legend>Add Book</legend>
-                        <ul>
-                            <li>
-                                <label for="title">Title</label>
-                                <input
-                                    type="text"
-                                    id="title"
-                                    name="title"
-                                    required
-                                />
-                            </li>
-                            <li>
-                                <label for="author">Author </label>
-                                <input
-                                    type="text"
-                                    id="author"
-                                    name="author"
-                                    required
-                                />
-                            </li>
-                            <li>
-                                <label for="read">Read?</label>
-                                <input type="checkbox" id="read" name="read" />
-                            </li>
-                        </ul>
-                        <button type="submit" id="submit">Submit</button>
-                    </fieldset>
-                </form>
-            </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <h1 id="header">Library</h1>
+    <!-- Button to open 'Add Book' modal -->
+    <button id="open-modal">Add Book</button>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <fieldset>
+                    <legend>Add Book</legend>
+                    <ul>
+                        <li>
+                            <label for="title">Title</label>
+                            <input type="text" id="title" name="title" required />
+                        </li>
+                        <li>
+                            <label for="author">Author </label>
+                            <input type="text" id="author" name="author" required />
+                        </li>
+                        <li>
+                            <label for="read">Read?</label>
+                            <input type="checkbox" id="read" name="read" />
+                        </li>
+                    </ul>
+                    <button type="submit" id="submit">Submit</button>
+                </fieldset>
+            </form>
         </div>
+    </div>
 
-        <!-- Table to store added books -->
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Read</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </body>
+    <!-- Table to store added books -->
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Read</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+
 </html>
