@@ -1,23 +1,57 @@
-let myLibrary = [];
 let table = document.querySelector('tbody');
 const form = document.querySelector('form');
 
-function Book(title, author, read = 'No') {
-    this.title = title;
-    this.author = author;
-    this.read = read;
+class Book {
+    constructor(title, author, read = false) {
+        this.title = title;
+        this.author = author;
+        this.read = read;
+    }
 }
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
-}
+let libraryModule = (function () {
+    let myLibrary = [];
 
-function deleteBook(book) {
-    const index = myLibrary.indexOf(book);
-    myLibrary.splice(index, 1);
-    table.innerHTML = '';
-    displayBooks();
-}
+    function addBook(book) {
+        myLibrary.push(book);
+    }
+
+    function deleteBook(book) {
+        const index = myLibrary.indexOf(book);
+        myLibrary.splice(index, 1);
+        table.innerHTML = '';
+        displayBooks();
+    }
+
+    function displayBooks() {
+        myLibrary.forEach((book) => {
+            let row = table.insertRow();
+            let titleCell = row.insertCell(0);
+            let authorCell = row.insertCell(1);
+            let readCell = row.insertCell(2);
+            let removeBook = row.insertCell(3);
+            row.dataset.index = myLibrary.indexOf(book);
+            let deleteBtn = createDeleteBtn();
+
+            let readCheckbox = createReadCheckbox(book);
+
+            titleCell.innerHTML = `${book.title}`;
+            authorCell.innerHTML = `${book.author}`;
+            readCell.appendChild(readCheckbox);
+            removeBook.appendChild(deleteBtn);
+
+            deleteBtn.addEventListener('click', () => {
+                deleteBook();
+            });
+
+            readCheckbox.addEventListener('change', () => {
+                readBook(book, readCheckbox);
+            });
+        });
+    }
+
+    return { myLibrary, addBook, deleteBook, displayBooks };
+})();
 
 function readBook(book, readCheckbox) {
     const index = myLibrary.indexOf(book);
@@ -28,44 +62,6 @@ function readBook(book, readCheckbox) {
     }
     console.log(book);
 }
-
-function displayBooks() {
-    myLibrary.forEach((book) => {
-        let row = table.insertRow();
-        let titleCell = row.insertCell(0);
-        let authorCell = row.insertCell(1);
-        let readCell = row.insertCell(2);
-        let removeBook = row.insertCell(3);
-        row.dataset.index = myLibrary.indexOf(book);
-        let deleteBtn = createDeleteBtn();
-
-        let readCheckbox = createReadCheckbox(book);
-
-        titleCell.innerHTML = `${book.title}`;
-        authorCell.innerHTML = `${book.author}`;
-        readCell.appendChild(readCheckbox);
-        removeBook.appendChild(deleteBtn);
-
-        deleteBtn.addEventListener('click', () => {
-            deleteBook();
-        });
-
-        readCheckbox.addEventListener('change', () => {
-            readBook(book, readCheckbox);
-        });
-    });
-}
-
-function emptyLibrary() {
-    if (myLibrary === undefined || myLibrary.length === 0) {
-        let msg = document.createElement('div');
-        msg.textContent =
-            'Your library is empty! Click the button to add a book!';
-        const header = document.querySelector('#header');
-        header.insertAdjacentElement('afterend', msg);
-    }
-}
-emptyLibrary();
 
 function createDeleteBtn() {
     let newDeleteBtn = document.createElement('input');
