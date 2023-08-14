@@ -10,7 +10,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "no-console": "off",
+        "no-console": "warn",
         "no-unused-vars": "off",
         "prefer-const": "off",
         "no-use-before-define": "off",
