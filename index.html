@@ -12,7 +12,20 @@
 </head>
 
 <body>
-    <h1 id="header">Library</h1>
+    <h1 id="header">My Library</h1>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
     <!-- Button to open 'Add Book' modal -->
     <button id="open-modal">Add Book</button>
     <!-- Modal -->
@@ -33,8 +46,11 @@
                             <input type="text" id="author" name="author" required />
                         </li>
                         <li>
-                            <label for="read">Read?</label>
-                            <input type="checkbox" id="read" name="read" />
+                            <label for="status">Status</label>
+                            <select id="status" name="status">
+                                <option value="Not Read">Not Read</option>
+                                <option value="Read">Read</option>
+                            </select>
                         </li>
                     </ul>
                     <button type="submit" id="submit">Submit</button>
@@ -42,19 +58,6 @@
             </form>
         </div>
     </div>
-
-    <!-- Table to store added books -->
-    <table id="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Status</th>
-                <th>DEL</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
 </body>
 
 </html>
