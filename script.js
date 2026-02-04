@@ -90,6 +90,11 @@ let libraryModule = (function () {
             deleteBtn.addEventListener('click', () => {
                 deleteBook(book);
             });
+
+            statusButton.addEventListener('click', () => {
+                book.status = book.status === 'Read' ? 'Not Read' : 'Read';
+                statusButton.value = book.status;
+            });
         });
     }
 

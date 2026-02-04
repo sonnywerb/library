@@ -4,115 +4,232 @@
 
 body {
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem;
 }
 
 .header {
-    border: 1px solid palegreen;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin: 0 auto 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
 }
 
-/* target main <table> element 
-    - add box shadow
-    - border-collapse to remove space between cell borders
-*/
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
+    margin: 0 auto 2rem;
+    font-size: 1rem;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    width: 75vw;
-    margin-right: auto;
-    margin-left: auto;
+    max-width: 900px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
 }
 
-/* style table header - change bg color, apply basic styles to text */
 .styled-table thead tr {
-    background-color: #009879;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #ffffff;
     text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
-/* space out the text in table cells */
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
+    padding: 16px 20px;
 }
 
-/* table rows
-    - add bottom border to each row 
-    - add lighter bg to every other row 
-    - add dark border to very last row
-*/
 .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 1px solid #e0e0e0;
+    transition: all 0.2s ease;
 }
 
-.styled-stsBtn {
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #e3e8ff;
+    transform: scale(1.01);
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: none;
 }
 
 .styled-dltBtn,
 .styled-stsBtn {
-    width: 4.5rem;
-    height: 1.5rem;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.styled-stsBtn {
+    background-color: #10b981;
+    color: white;
 }
 
 .styled-stsBtn:hover {
-    font-weight: bold;
-    color: #009879;
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.styled-dltBtn {
+    background-color: #ef4444;
+    color: white;
 }
 
 .styled-dltBtn:hover {
-    font-weight: bold;
-    color: red;
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
 }
 
-/* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
 }
 
-/* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
+    background-color: white;
+    margin: 8% auto;
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
 }
 
-/* The Close Button */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .close {
-    color: #aaa;
+    color: #999;
     float: right;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
+    padding: 0 16px;
+    transition: color 0.2s ease;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #333;
     text-decoration: none;
     cursor: pointer;
 }
 
 fieldset {
     border: none;
+    padding: 2rem;
+}
+
+fieldset legend {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+fieldset ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+fieldset li {
+    margin-bottom: 1.5rem;
+}
+
+fieldset label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+fieldset input[type="text"],
+fieldset select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+fieldset input[type="text"]:focus,
+fieldset select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+fieldset button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+fieldset button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+#open-modal {
+    display: block;
+    margin: 0 auto;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+#open-modal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
 }
