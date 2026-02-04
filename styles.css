@@ -1,34 +1,78 @@
-table {
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.header {
+    border: 1px solid palegreen;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* target main <table> element 
+    - add box shadow
+    - border-collapse to remove space between cell borders
+*/
+.styled-table {
     border-collapse: collapse;
-    border: 2px solid rgb(200, 200, 200);
-    letter-spacing: 1px;
-    font-size: 0.8rem;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 75vw;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-td,
-th {
-    border: 1px solid rgb(190, 190, 190);
-    padding: 10px 20px;
+/* style table header - change bg color, apply basic styles to text */
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
 }
 
-th {
-    background-color: rgb(235, 235, 235);
+/* space out the text in table cells */
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
 }
 
-td {
-    text-align: center;
+/* table rows
+    - add bottom border to each row 
+    - add lighter bg to every other row 
+    - add dark border to very last row
+*/
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
 }
 
-tr:nth-child(even) td {
-    background-color: rgb(250, 250, 250);
+.styled-stsBtn {
 }
 
-tr:nth-child(odd) td {
-    background-color: rgb(245, 245, 245);
+.styled-dltBtn,
+.styled-stsBtn {
+    width: 4.5rem;
+    height: 1.5rem;
 }
 
-caption {
-    padding: 10px;
+.styled-stsBtn:hover {
+    font-weight: bold;
+    color: #009879;
+}
+
+.styled-dltBtn:hover {
+    font-weight: bold;
+    color: red;
 }
 
 /* The Modal (background) */

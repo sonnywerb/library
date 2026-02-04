@@ -58,7 +58,17 @@ let libraryModule = (function () {
         newDeleteBtn.type = 'button';
         newDeleteBtn.className = 'deleteBtn';
         newDeleteBtn.value = 'Delete';
+        newDeleteBtn.classList.add('styled-dltBtn');
         return newDeleteBtn;
+    }
+
+    function createStatusButton(book) {
+        let newStatusBtn = document.createElement('input');
+        newStatusBtn.type = 'button';
+        newStatusBtn.className = 'statusBtn';
+        newStatusBtn.value = book.status;
+        newStatusBtn.classList.add('styled-stsBtn');
+        return newStatusBtn;
     }
 
     function displayBooks() {
@@ -69,11 +79,12 @@ let libraryModule = (function () {
             let statusCell = row.insertCell(2);
             let removeBook = row.insertCell(3);
             row.dataset.index = myLibrary.indexOf(book);
+            let statusButton = createStatusButton(book);
             let deleteBtn = createDeleteBtn();
 
             titleCell.innerHTML = `${book.title}`;
             authorCell.innerHTML = `${book.author}`;
-            statusCell.innerHTML = `${book.status}`;
+            statusCell.appendChild(statusButton);
             removeBook.appendChild(deleteBtn);
 
             deleteBtn.addEventListener('click', () => {
